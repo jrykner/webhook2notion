@@ -8,7 +8,7 @@ from flask import request
 app = Flask(__name__)
 
 
-def createNotionTask(token, collectionURL, content):
+def createNotionTask(token, collectionURL, content, labels, project, duedate, priority):
     # notion
     client = NotionClient(token)
     cv = client.get_collection_view(collectionURL)
@@ -17,7 +17,7 @@ def createNotionTask(token, collectionURL, content):
     row.labels= labels
     row.project= project
     row.duedate= duedate
-    row.priority=priority
+    row.priority= priority
 
 
 @app.route('/create_todo', methods=['GET'])
