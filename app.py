@@ -8,7 +8,7 @@ from flask import request
 app = Flask(__name__)
 
 
-def createNotionTask(token, collectionURL, content, labels, project, duedate, priority):
+def createNotionTask(token, collectionURL, content):
     # notion
     client = NotionClient(token)
     cv = client.get_collection_view(collectionURL)
