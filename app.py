@@ -8,16 +8,16 @@ from flask import request
 app = Flask(__name__)
 
 
-def createNotionTask(token, collectionURL, content):
+def createNotionTask(token, collectionURL, content, labels, project, duedate, priority):
     # notion
     client = NotionClient(token)
     cv = client.get_collection_view(collectionURL)
     row = cv.collection.add_row()
     row.title = content
-    row.labels= "labels"
-    row.project= "project"
-    row.duedate= "duedate"
-    row.priority= "priority"
+    myrowblock.labels = "labels"
+    myrowblock.project= "project"
+    myrowblock.duedate= "duedate"
+    myrowblock.priority= "priority"
 
 
 @app.route('/create_todo', methods=['GET'])
